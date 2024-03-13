@@ -1,11 +1,54 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { getData, sendData } from './assets/utils/database'
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import {getDatabase, onValue, ref, set} from "firebase/database"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAJi_8no94o56-oYUjrJsPOJaJCwdLuRoc",
+  authDomain: "data-e3c03.firebaseapp.com",
+  databaseURL: "https://data-e3c03-default-rtdb.firebaseio.com",
+  projectId: "data-e3c03",
+  storageBucket: "data-e3c03.appspot.com",
+  messagingSenderId: "173696103865",
+  appId: "1:173696103865:web:8e8babfd5b77240ab8b268"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const reference = ref(db,"count/"+count);
+  const readReference = ref(db,"count/");
 
+  function btnClick(){
+    setCount((count) => count + 1);
+    // set(reference, {
+    //   time: Date.now(),
+    //   id: count
+    // })
+    sendData(count);
+  }
+
+  useEffect( ()=> {
+    onValue(readReference, (snap)=>{
+      const data = snap.val();
+      console.log(data);
+    })
+
+  },[])
+  
+  
   return (
     <>
       <div>
@@ -18,7 +61,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={btnClick}>
           count is {count}
         </button>
         <p>
