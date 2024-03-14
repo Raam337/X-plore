@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { getData, sendData } from './assets/utils/database'
+import { useEffect, useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { getData, sendData } from './assets/utils/database';
+import TripAdvisorTest from './components/TripAdvisorTest';
 
 
 
@@ -38,11 +39,13 @@ function App() {
         </div>
         </div>
       </div> 
-      )
-      
-      )}
+      ))}
+            <div>
+      <h1>My TripAdvisor API Test</h1>
+      <TripAdvisorTest />
+      </div>
     </>
-  )
+  );
 }
 
 export default App
