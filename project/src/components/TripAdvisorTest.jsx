@@ -25,9 +25,9 @@ const TripAdvisorTest = () => {
     //     console.error('Error fetching data:', error);
     //   });
 
-      const options = {method: 'GET', headers: {accept: 'application/json'}};
+      const options = {method: 'GET', headers: {accept: 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'Origin': '90.241.158.152'}} // Replace with your website's origin }};
 
-fetch('https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=New%20York&language=en&key=9491811BFD104CB0A2D25657377EEFD0', options)
+fetch('https://cors-anywhere.herokuapp.com/https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=New%20York&language=en&key=9491811BFD104CB0A2D25657377EEFD0', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
