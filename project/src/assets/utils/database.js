@@ -14,11 +14,11 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const reference = ref(db,"count/");
 
-function sendData(content, img, place, name, ) {
+function sendData(obj ) {
   const newref = push(reference);
     set(newref, {
         time: Date.now(),
-        text: str
+        ...obj
     })
 }
 
