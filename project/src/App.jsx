@@ -9,6 +9,7 @@ import { Input } from './components/Input/Input'
 function App() {
   const [count, setCount] = useState(0);
   const [posts, setPosts] = useState([]);
+  const [auth,setAuth] = useState(false);
 
   function btnClick() {
     setCount((count) => count + 1);
@@ -27,7 +28,7 @@ function App() {
   return (
     <>
       <Input></Input>
-      {Object.entries(posts).map( ([key,val])=> (
+      {/* {Object.entries(posts).map( ([key,val])=> (
       <div key={key}>
         <div className="card">
         <div className="card-body">
@@ -39,8 +40,13 @@ function App() {
         </div>
       </div> 
       )
-      
-      )}
+      redux?
+      const isAuth
+
+      <Login prop=setState>
+      <Inpunt prop=state>
+
+      )} */}
     </>
   )
 }

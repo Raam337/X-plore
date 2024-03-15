@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { sendData } from "../../assets/utils/database";
-
+import "./style.css"
 function Input() {
 const [postData, setPostData] = useState({
-     postText:"",
-     imgData: "",
-     place:""
+    name:"",
+    postText:"",
+    imgData: "",
+    place:""
 });
 
     const handleSubmit = (e) => {
@@ -34,14 +35,22 @@ const [postData, setPostData] = useState({
 
 return (
     <form className="border border-1 p-4" onSubmit={handleSubmit}>
+        <div className="row g-2 mb-3">
+            <div className="col-md-5 form-floating"> 
+                <input onChange={handleChange} type="text" name="name" className="form-control" id="nameInput"/>
+                <label htmlFor="nameInput">Name</label>
+            </div>
+        </div>
         <div className="form-floating mb-3">
             <textarea onChange={handleChange} name="postText" className="form-control" id="postInput"></textarea>
             <label htmlFor="postInput">Post message</label>
         </div>
         <div className="row g-2 mb-3">
             <div className="col-md form-floating"> 
-                <input onChange={handleChange} type="text" name="place" className="form-control" id="placeInput"/>
-                <label htmlFor="placeInput">Tag a place</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">#</span>
+                    <input type="text" class="form-control" placeholder="Tag place" aria-label="Username" aria-describedby="basic-addon1"/>
+                </div>
             </div>
             <div className="col-md"> 
                 <input onChange={handleImageChange} type="file" name="imgData" className="form-control" id="imageInput" aria-label="Upload"/>
