@@ -4,12 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { getData, sendData } from './assets/utils/database'
 import { Input } from './components/Input/Input'
+import { Auth } from './components/Auth/Auth'
 
 
 function App() {
   const [count, setCount] = useState(0);
   const [posts, setPosts] = useState([]);
-  const [auth,setAuth] = useState(false);
+  const [auth,setAuth] = useState({status:false, login:"Robert", img:"https://placehold.co/50x50"});
 
   function btnClick() {
     setCount((count) => count + 1);
@@ -27,26 +28,19 @@ function App() {
 
   return (
     <>
-      <Input></Input>
-      {/* {Object.entries(posts).map( ([key,val])=> (
-      <div key={key}>
-        <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{val.place}</h5>
-          <h6 className="card-subtitle mb-2 text-body-secondary">{val.postText}</h6>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <img src={val.imgData}/>
+      <div className="container-fluid text-center">
+        <div className="row mt-5">
+          <div className="col-3 d-flex flex-wrap justify-content-center align-content-between">
+            <Auth auth={auth} authFunction={setAuth}></Auth>
+          </div>
+          <div className="col">
+            <Input status={auth.status}></Input>
+          </div>
+          <div className="col-3">
+            Column
+          </div>
         </div>
-        </div>
-      </div> 
-      )
-      redux?
-      const isAuth
-
-      <Login prop=setState>
-      <Inpunt prop=state>
-
-      )} */}
+      </div>
     </>
   )
 }
