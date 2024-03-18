@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { sendData } from "../../assets/utils/database";
 import "./style.css"
-function Input() {
+function Input(prop) {
 const [postData, setPostData] = useState({
     name:"",
     postText:"",
@@ -35,10 +35,11 @@ const [postData, setPostData] = useState({
 
 return (
     <form className="border border-1 p-4" onSubmit={handleSubmit}>
-        <div className="row g-2 mb-3">
-            <div className="col-md-5 form-floating"> 
-                <input onChange={handleChange} type="text" name="name" className="form-control" id="nameInput"/>
-                <label htmlFor="nameInput">Name</label>
+        <fieldset disabled={!prop.status}>
+        <div className="row g-2 col-5">
+            <div className="input-group mb-3 text-left">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <span class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">sdasd</span>
             </div>
         </div>
         <div className="form-floating mb-3">
@@ -57,6 +58,7 @@ return (
             </div>
         </div>
         <button type="submit" className="btn btn-primary">Post</button>
+        </fieldset>
     </form>
 )
 }
