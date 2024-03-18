@@ -43,9 +43,9 @@ function Auth(prop){
     } else {
         return (
             <div className="card d-flex flex-column align-items-center">
-                    <div class="mb-3">
-                        <label htmlFor="usernameRegister" class="form-label mb-3 fw-bold">Register</label>
-                        <input onChange={handleChange} type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+                    <div className="mb-3">
+                        <label htmlFor="usernameRegister" className="form-label mb-3 fw-bold">Register</label>
+                        <input onChange={handleChange} type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
                         <a href="#" onClick={logIn} className="btn btn-primary mt-3">Login</a>
                     </div>
             </div>

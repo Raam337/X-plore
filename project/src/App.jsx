@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import './components/Post.jsx'
 import { getData, sendData } from './assets/utils/database'
 import { Input } from './components/Input/Input'
 import { Auth } from './components/Auth/Auth'
+import { Post } from "./components/Post/Post"
 
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Post />
     </>
   )
 }

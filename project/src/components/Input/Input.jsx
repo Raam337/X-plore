@@ -38,8 +38,8 @@ return (
         <fieldset disabled={!prop.status}>
         <div className="row g-2 col-5">
             <div className="input-group mb-3 text-left">
-                <span class="input-group-text" id="basic-addon1">@</span>
-                <span class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">sdasd</span>
+                <span className="input-group-text" id="basic-addon1">@</span>
+                <span className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">sdasd</span>
             </div>
         </div>
         <div className="form-floating mb-3">
@@ -48,9 +48,9 @@ return (
         </div>
         <div className="row g-2 mb-3">
             <div className="col-md form-floating"> 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">#</span>
-                    <input type="text" class="form-control" placeholder="Tag place" aria-label="Username" aria-describedby="basic-addon1"/>
+                <div className="input-group mb-3">
+                    <span className="input-group-text" id="basic-addon1">#</span>
+                    <input type="text" className="form-control" placeholder="Tag place" aria-label="Username" aria-describedby="basic-addon1"/>
                 </div>
             </div>
             <div className="col-md"> 
