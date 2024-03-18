@@ -1,0 +1,8 @@
+form{
+    
+    background-color: var(--primary);
+}
+
+#postInput {
+    min-height: 100px !important;
+}
