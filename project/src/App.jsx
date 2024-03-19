@@ -6,25 +6,23 @@ import { getData, sendData } from './assets/utils/database'
 import { Input } from './components/Input/Input'
 import { Auth } from './components/Auth/Auth'
 import { Post } from "./components/Post/Post"
+import PostList from './components/PostList/PostList'
 
 
 function App() {
   const [count, setCount] = useState(0);
   const [posts, setPosts] = useState([]);
-  const [auth,setAuth] = useState({status:false, login:"Robert", img:"https://placehold.co/50x50"});
-
-  function btnClick() {
-    setCount((count) => count + 1);
-    sendData(count);
-  }
+  const [auth,setAuth] = useState({status:false, login:"", icon:""});
 
   useEffect(() => {
     getData((data) => {
-      console.log(data);
+      console.log(Object.values(data));
       setPosts(data);
     });
 
   }, [])
+
+
 
 
   return (
@@ -35,7 +33,8 @@ function App() {
             <Auth auth={auth} authFunction={setAuth}></Auth>
           </div>
           <div className="col">
-            <Input status={auth.status}></Input>
+            <Input authData={auth}></Input>
+            <PostList />
           </div>
           <div className="col-3">
             Column

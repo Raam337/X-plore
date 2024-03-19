@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { sendData } from "../../assets/utils/database";
 import "./style.css"
-function Input(prop) {
+import SearchInput from "../LocationInput/SearchInput";
+import SearchLocation from "../LocationInput/SearchLocation";
+function Input({authData}) {
 const [postData, setPostData] = useState({
     name:"",
     postText:"",
@@ -11,6 +13,7 @@ const [postData, setPostData] = useState({
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setPostData({...postData, name:authData.login, icon:authData.icon})
         console.log(postData);
         sendData(postData);
     }
@@ -35,11 +38,11 @@ const [postData, setPostData] = useState({
 
 return (
     <form className="border border-1 p-4" onSubmit={handleSubmit}>
-        <fieldset disabled={!prop.status}>
+        <fieldset disabled={!authData.status}>
         <div className="row g-2 col-5">
             <div className="input-group mb-3 text-left">
                 <span className="input-group-text" id="basic-addon1">@</span>
-                <span className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">sdasd</span>
+                <span className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">{authData.login}</span>
             </div>
         </div>
         <div className="form-floating mb-3">
@@ -49,8 +52,7 @@ return (
         <div className="row g-2 mb-3">
             <div className="col-md form-floating"> 
                 <div className="input-group mb-3">
-                    <span className="input-group-text" id="basic-addon1">#</span>
-                    <input type="text" className="form-control" placeholder="Tag place" aria-label="Username" aria-describedby="basic-addon1"/>
+                    <SearchLocation changeLocation={setPostData} masterState={postData}/>
                 </div>
             </div>
             <div className="col-md"> 

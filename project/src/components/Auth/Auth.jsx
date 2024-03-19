@@ -1,14 +1,18 @@
 import "./style.css"
 import { useEffect, useState } from 'react'
+const regex = /[a-zA-Z0-9]+/;
 
 function Auth(prop){
     const [username,setUserName] = useState("");
     function logIn(){
-        prop.authFunction({status:true, login:username, img:createGradient()})
+        if(!username){ alert("Username required"); return}
+        if(!regex.test(username)) { alert("Invalid input"); return}
+        prop.authFunction({status:true, login:username, icon:createGradient()})
     }
 
     function logOut(){
-        prop.authFunction({status:false})
+        setUserName("");
+        prop.authFunction({status:false, login:"", icon:""})
     }
 
     function handleChange(e){
@@ -21,8 +25,8 @@ function Auth(prop){
         canvas.height = 100; // Adjust height as needed
         var ctx = canvas.getContext('2d');
         var gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        gradient.addColorStop(0, '#' + Math.floor(Math.random() * 16777215).toString(16));
-        gradient.addColorStop(1, '#' + Math.floor(Math.random() * 16777215).toString(16));
+        gradient.addColorStop(0, '#' + Math.floor(Math.random() * 16777215).toString(16).padEnd(6,"0"));
+        gradient.addColorStop(1, '#' + Math.floor(Math.random() * 16777215).toString(16).padEnd(6,"0"));
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         return canvas.toDataURL();
@@ -32,7 +36,7 @@ function Auth(prop){
         return (
 
             <div className="card d-flex flex-column align-items-center">
-                <img src={prop.auth.img} className="card-img-top rounded-circle" alt="..." />
+                <img src={prop.auth.icon} className="card-img-top rounded-circle" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{prop.auth.login}</h5>
                     <br></br>

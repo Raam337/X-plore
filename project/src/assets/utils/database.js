@@ -20,6 +20,7 @@ function sendData(obj ) {
         time: Date.now(),
         ...obj
     })
+  
 }
 
 function getData(callback) {
@@ -29,10 +30,14 @@ function getData(callback) {
   });
 }
 
+function getRef(){
+  return reference
+}
+
 // Use following to get the data:
 // getData((data) => {
 //   console.log(data);
 // });
 
 
-export {sendData, getData}
+export {sendData, getData, onValue, getRef}
