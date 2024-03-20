@@ -22,9 +22,6 @@ function App() {
 
   }, [])
 
-
-
-
   return (
     <>
       <div className="container-fluid text-center">
@@ -41,7 +38,6 @@ function App() {
           </div>
         </div>
       </div>
-      <Post />
     </>
   )
 }

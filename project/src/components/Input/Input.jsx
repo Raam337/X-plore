@@ -12,6 +12,7 @@ const [postData, setPostData] = useState({
 });
 
     const handleSubmit = (e) => {
+        console.log(e);
         e.preventDefault();
         setPostData({...postData, name:authData.login, icon:authData.icon})
         console.log(postData);
@@ -37,7 +38,7 @@ const [postData, setPostData] = useState({
 
 
 return (
-    <form className="border border-1 p-4" onSubmit={handleSubmit}>
+    <form className="border border-1 p-4" onSubmit={handleSubmit} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
         <fieldset disabled={!authData.status}>
         <div className="row g-2 col-5">
             <div className="input-group mb-3 text-left">
