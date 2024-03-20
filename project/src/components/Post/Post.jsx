@@ -3,7 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart, faHeart as regularHeart } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp, faHeart } from '@fortawesome/free-solid-svg-icons';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 function Post({postData}) {
     console.log(postData)
