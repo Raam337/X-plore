@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchInput from './SearchInput';
 import SearchResults from './SearchResults';
 
-const SearchLocation = () => {
+const SearchLocation = ({changeLocation, masterState}) => {
     const [searchResults, setSearchResults] = useState([]);
   
     const handleSearchResults = (results) => {
@@ -15,7 +15,7 @@ const SearchLocation = () => {
   
     return (
       <div className>
-        <SearchInput onSearch={handleSearchResults} onPlaceSelect={handlePlaceSelect} />
+        <SearchInput onSearch={handleSearchResults} onPlaceSelect={handlePlaceSelect} setPostLocation={changeLocation} masterState={masterState}/>
         <SearchResults results={searchResults} onPlaceSelect={handlePlaceSelect} />
       </div>
     );
