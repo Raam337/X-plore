@@ -6,7 +6,6 @@ import { faThumbsUp, faHeart } from '@fortawesome/free-solid-svg-icons';
 import dayjs from 'dayjs';
 
 function Post({postData}) {
-    console.log(postData)
     return (
         <div className="container">
             <div className="card Post">
