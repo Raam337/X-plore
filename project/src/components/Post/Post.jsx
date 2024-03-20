@@ -14,7 +14,7 @@ function Post() {
                             <img className="postProfileimg rounded-circle" src="./src/assets/profile.png" alt=""/>
                         </div>
                         <div className="col">
-                            <span className="postUsername">{postData.name}</span>
+                            <span className="postUsername">{entry.name}</span>
                             <span className="d-block postDate">15 minutes ago</span>
                         </div>
                     </div>
@@ -22,8 +22,8 @@ function Post() {
                     </div>
                 </div>
                 <div className="card-body postCenter">
-                    <p className="card-text">{postData.postText}</p>
-                    {postData.imgData && <img className="img-fluid postImg" src={postData.imgData} alt=""/>}
+                    <p className="card-text">{entry.postText}</p>
+                    {entry.imgData && <img className="img-fluid postImg" src={entry.imgData} alt=""/>}
                 </div>
                 <div className="card-footer postBottom">
                     <div className="postBottomLeft">
@@ -36,9 +36,9 @@ function Post() {
                     <div className="postBottomRight">
                         <button type="button" className="btn btn-primary" onClick={handleComment}>10 Comments</button>
                     </div>
-                    {postData.place && (
+                    {entry.place && (
                     <div className="card-footer postBottom">
-                        <span className="postPlace">Place: {postData.place}</span>
+                        <span className="postPlace">Place: {entry.place}</span>
                     </div>
                 )}
                 </div>
