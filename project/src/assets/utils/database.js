@@ -14,8 +14,9 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const reference = ref(db,"count/");
 
-function sendData(obj ) {
+function sendData(obj) {
   const newref = push(reference);
+  console.log({...obj}, "---TO DB----");
     set(newref, {
         time: Date.now(),
         ...obj

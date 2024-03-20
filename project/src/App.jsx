@@ -14,13 +14,9 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [auth,setAuth] = useState({status:false, login:"", icon:""});
 
-  useEffect(() => {
-    getData((data) => {
-      console.log(Object.values(data));
-      setPosts(data);
-    });
-
-  }, [])
+  useEffect( ()=>{
+    console.log(auth, "----- CHANGE-----");
+  },[auth] )
 
   return (
     <>

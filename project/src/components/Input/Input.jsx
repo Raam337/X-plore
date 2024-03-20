@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { sendData } from "../../assets/utils/database";
 import "./style.css"
 import SearchInput from "../LocationInput/SearchInput";
@@ -8,16 +8,34 @@ const [postData, setPostData] = useState({
     name:"",
     postText:"",
     imgData: "",
-    place:""
+    place:"",
+    icon:""
 });
 
-    const handleSubmit = (e) => {
-        console.log(e);
+const [submitState,setSubmitState] = useState({
+    name:"",
+    postText:"",
+    imgData: "",
+    place:"",
+    icon:""
+});
+
+
+    useEffect(() => {
+        console.log(submitState, "---usestate---");
+        if(!submitState.name == "") sendData(submitState); 
+      }, [submitState]);
+      
+      const handleSubmit = (e) => {
         e.preventDefault();
-        setPostData({...postData, name:authData.login, icon:authData.icon})
-        console.log(postData);
-        sendData(postData);
-    }
+        console.log(authData);
+        setSubmitState(prevSubmissionData => ({
+          ...prevSubmissionData,
+          ...postData,
+          name: authData.login,
+          icon: authData.icon
+        }));
+      };
 
     const handleChange = (e) => {
         const {name:field, value:val} = e.target;

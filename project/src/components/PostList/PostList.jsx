@@ -8,19 +8,19 @@ export default function PostList() {
     useEffect( ()=> {
         onValue(getRef(),(snap)=>{
             setPosts(snap.val());
-            console.log(posts);
         });
     },[])
 
-    return(
-        <>
-        {Object.entries(posts).map(( [id,value] )=>{
-            console.log(value)
-            return (
-                <Post key={id} postData={value}></Post>
-            )
-        } ).reverse()}
-        </>
-    )
+    if(posts !== null){
+        return(
+            <>
+            {Object.entries(posts).map(( [id,value] )=>{
+                return (
+                    <Post key={id} postData={value}></Post>
+                )
+            } ).reverse()}
+            </>
+        )
+    }
 
 }
