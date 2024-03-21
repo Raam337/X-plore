@@ -1,58 +1,41 @@
+import { useEffect, useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import { getData, sendData } from './assets/utils/database'
+import { Input } from './components/Input/Input'
+import { Auth } from './components/Auth/Auth'
+import { Post } from "./components/Post/Post"
+import PostList from './components/PostList/PostList'
 
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { getData, sendData } from './assets/utils/database';
-import { Input } from './components/Input/Input';
-import { Auth } from './components/Auth/Auth';
-import { Post } from './components/Post/Post';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [count, setCount] = useState(0);
   const [posts, setPosts] = useState([]);
-  const [auth, setAuth] = useState({ status: false, login: 'Robert', img: 'https://placehold.co/50x50' });
+  const [auth,setAuth] = useState({status:false, login:"", icon:""});
 
-  useEffect(() => {
-    getData((data) => {
-      console.log(data);
-      setPosts(data);
-    });
-  }, []);
-
-
-  const handlePostSubmit = (postContent) => {
-    const newPost = {
-      content: postContent,
-      author: auth.login,
-      date: new Date().toISOString(),
-    };
-
-    sendData(newPost)
-      .then(() => {
-        setPosts((prevPosts) => [...prevPosts, newPost]);
-      })
-      .catch((error) => {
-        console.error('Error sending post data:', error);
-      });
-  };
+  useEffect( ()=>{
+    console.log(auth, "----- CHANGE-----");
+  },[auth] )
 
   return (
     <>
       <div className="container-fluid text-center">
         <div className="row mt-5">
           <div className="col-3 d-flex flex-wrap justify-content-center align-content-between">
-            <Auth auth={auth} authFunction={setAuth} />
+            <Auth auth={auth} authFunction={setAuth}></Auth>
           </div>
           <div className="col">
-            <Input status={auth.status} onPostSubmit={handlePostSubmit} />
+            <Input authData={auth}></Input>
+            <PostList />
           </div>
-          <div className="col-3">Column</div>
+          <div className="col-3">
+            Column
+          </div>
         </div>
       </div>
-      <div className='col'>
-        <Post posts={posts} />
-      </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

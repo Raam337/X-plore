@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SearchInput.css';
 
-const SearchInput = ({ onSearch, onPlaceSelect }) => {
+const SearchInput = ({ onSearch, onPlaceSelect, setPostLocation, masterState }) => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
@@ -33,10 +33,12 @@ const SearchInput = ({ onSearch, onPlaceSelect }) => {
     setSelectedLocation(location);
     setSearchResults([]);
     setQuery('');
+    setPostLocation({...masterState, place:location.name})
   };
 
   const handleRemoveTag = () => {
     setSelectedLocation(null);
+    setPostLocation({...masterState, place:""});
   };
 
   return (
@@ -48,6 +50,7 @@ const SearchInput = ({ onSearch, onPlaceSelect }) => {
           placeholder="Tag a location"
           value={query}
           onChange={handleChange}
+          onKeyDown={ (e)=> (e.key === "Enter")?handleSearch():null}
         />
         <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>
           Search

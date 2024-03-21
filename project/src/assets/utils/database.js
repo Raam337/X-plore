@@ -14,12 +14,14 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const reference = ref(db,"count/");
 
-function sendData(obj ) {
+function sendData(obj) {
   const newref = push(reference);
+  console.log({...obj}, "---TO DB----");
     set(newref, {
         time: Date.now(),
         ...obj
     })
+  
 }
 
 function getData(callback) {
@@ -29,10 +31,14 @@ function getData(callback) {
   });
 }
 
+function getRef(){
+  return reference
+}
+
 // Use following to get the data:
 // getData((data) => {
 //   console.log(data);
 // });
 
 
-export {sendData, getData}
+export {sendData, getData, onValue, getRef}

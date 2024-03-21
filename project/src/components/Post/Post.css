@@ -3,7 +3,7 @@
     border-radius: 10px;
     -webkit-box-shadow: 5px 0px 16px -8px rgba(0,0,0,0.68); 
     box-shadow: 5px 0px 16px -8px rgba(0,0,0,0.68);
-    margin: 30px 0;
+    margin: 32px 0;
 }
 
 .Post .Postwrapper {
@@ -39,14 +39,25 @@
 }
 
 .Post .postCenter {
-    margin: 20px 0;
+    margin: 8px 0;
 }
 
-.Post .postImg {
+.card-text{
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.postImg {
     margin-top: 20px;
+    width: 100% !important;
+    max-height: 500px !important;
+    object-fit:fill;
+}
+
+.postPlace {
+    display:flex ;
+    margin-top: 8px;
     width: 100%;
-    max-height: 500px;
-    object-fit: contain;
 }
 
 .Post .postBottom {
@@ -82,4 +93,9 @@
 .Post .postlikeCounter,
 .Post .postCommentText {
     font-size: 15px;
+}
+
+.card{
+    width: 100% !important;
+    padding: 0% !important;
 }

@@ -1,19 +1,41 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { sendData } from "../../assets/utils/database";
 import "./style.css"
-function Input(prop) {
+import SearchInput from "../LocationInput/SearchInput";
+import SearchLocation from "../LocationInput/SearchLocation";
+function Input({authData}) {
 const [postData, setPostData] = useState({
     name:"",
     postText:"",
     imgData: "",
-    place:""
+    place:"",
+    icon:""
 });
 
-    const handleSubmit = (e) => {
+const [submitState,setSubmitState] = useState({
+    name:"",
+    postText:"",
+    imgData: "",
+    place:"",
+    icon:""
+});
+
+
+    useEffect(() => {
+        console.log(submitState, "---usestate---");
+        if(!submitState.name == "") sendData(submitState); 
+      }, [submitState]);
+      
+      const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(postData);
-        sendData(postData);
-    }
+        console.log(authData);
+        setSubmitState(prevSubmissionData => ({
+          ...prevSubmissionData,
+          ...postData,
+          name: authData.login,
+          icon: authData.icon
+        }));
+      };
 
     const handleChange = (e) => {
         const {name:field, value:val} = e.target;
@@ -34,12 +56,12 @@ const [postData, setPostData] = useState({
 
 
 return (
-    <form className="border border-1 p-4" onSubmit={handleSubmit}>
-        <fieldset disabled={!prop.status}>
+    <form className="border border-1 p-4" onSubmit={handleSubmit} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
+        <fieldset disabled={!authData.status}>
         <div className="row g-2 col-5">
             <div className="input-group mb-3 text-left">
                 <span className="input-group-text" id="basic-addon1">@</span>
-                <span className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">sdasd</span>
+                <span className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">{authData.login}</span>
             </div>
         </div>
         <div className="form-floating mb-3">
@@ -48,16 +70,15 @@ return (
         </div>
         <div className="row g-2 mb-3">
             <div className="col-md form-floating"> 
-                <div className="input-group mb-3">
-                    <span className="input-group-text" id="basic-addon1">#</span>
-                    <input type="text" className="form-control" placeholder="Tag place" aria-label="Username" aria-describedby="basic-addon1"/>
+                <div className="input-group col-md">
+                    <SearchLocation changeLocation={setPostData} masterState={postData}/>
                 </div>
             </div>
             <div className="col-md"> 
                 <input onChange={handleImageChange} type="file" name="imgData" className="form-control" id="imageInput" aria-label="Upload"/>
             </div>
         </div>
-        <button type="submit" className="btn btn-primary">Post</button>
+        <button type="submit" className="btn btn-primary col-md-6">Post</button>
         </fieldset>
     </form>
 )
