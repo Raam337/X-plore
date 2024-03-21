@@ -30,7 +30,7 @@ function App() {
             <PostList />
           </div>
           <div className="col-3">
-            Column
+            <img src='.\src\assets\logo.png' className='Mainlogo'></img>
           </div>
         </div>
       </div>

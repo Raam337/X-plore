@@ -36,11 +36,10 @@ function Auth(prop){
         return (
 
             <div className="card d-flex flex-column align-items-center">
-                <img src={prop.auth.icon} className="card-img-top rounded-circle" alt="..." />
+                <img src={prop.auth.icon} className="card-img-top rounded-circle mt-3" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{prop.auth.login}</h5>
-                    <br></br>
-                    <a href="#" onClick={logOut} className="btn btn-primary">Logout</a>
+                    <a href="#" onClick={logOut} className="btn btn-primary mt-2">Logout</a>
                 </div>
             </div>
         )
@@ -48,7 +47,7 @@ function Auth(prop){
         return (
             <div className="card d-flex flex-column align-items-center">
                     <div className="mb-3">
-                        <label htmlFor="usernameRegister" className="form-label mb-3 fw-bold">Register</label>
+                        <label htmlFor="usernameRegister" className="form-label my-3 fw-bold">Register</label>
                         <input onChange={handleChange} type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
                         <a href="#" onClick={logIn} className="btn btn-primary mt-3">Login</a>
                     </div>
