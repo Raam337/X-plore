@@ -23,9 +23,13 @@ function Post({postData}) {
                     </div>
                 </div>
                 <div className="card-body postCenter d-flex flex-column">
-                    <p className="card-text">{postData.postText}</p>
+                    <div className="card-text">
+                        <p className="card-text">{postData.postText}</p>
+                    </div>
                     {postData.imgData && <img className="img-fluid postImg" src={postData.imgData} alt=""/>}
-                    <span className="postPlace"><b>Location:</b> {postData.place}</span>
+                    <div className="postPlace">
+                        <span className="postPlace"><b>Location:</b> &nbsp; {postData.place}</span>
+                    </div>
                 </div>
                 <div className="card-footer postBottom">
                     <div className="postBottomLeft">

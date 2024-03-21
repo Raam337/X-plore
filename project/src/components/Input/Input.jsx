@@ -70,7 +70,7 @@ return (
         </div>
         <div className="row g-2 mb-3">
             <div className="col-md form-floating"> 
-                <div className="input-group mb-3">
+                <div className="input-group col-md">
                     <SearchLocation changeLocation={setPostData} masterState={postData}/>
                 </div>
             </div>
@@ -78,7 +78,7 @@ return (
                 <input onChange={handleImageChange} type="file" name="imgData" className="form-control" id="imageInput" aria-label="Upload"/>
             </div>
         </div>
-        <button type="submit" className="btn btn-primary">Post</button>
+        <button type="submit" className="btn btn-primary col-md-6">Post</button>
         </fieldset>
     </form>
 )

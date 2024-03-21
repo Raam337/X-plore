@@ -1,6 +1,8 @@
 form{
     
-    background-color: var(--primary);
+    background-color:#D9BDE6;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #postInput {
