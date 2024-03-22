@@ -25,6 +25,9 @@ Basic wireframe:
 High fidelity wireframe:
 ![X-plore detailed wireframe](https://github.com/Raam337/X-plore/assets/151631423/df6dd712-019a-4fb0-88fc-ea68bd173320)
 
+Final layout:
+![X-Plore final design](https://github.com/Raam337/X-plore/assets/69675406/362b7cc5-9929-4579-b694-6be99db7048d)
+
 ## Technologies used:
 * React - Development library
 * Node - Framework environment
