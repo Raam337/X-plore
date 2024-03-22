@@ -29,7 +29,7 @@ High fidelity wireframe:
 * React - Development library
 * Node - Framework environment
 * Bootstrap/CSS - Design & Styling
-* opencagedata - API
+* Opencagedata - API
 * Firebase - database
 * Figma - Design
 * Netlify - Deployment
@@ -38,11 +38,6 @@ High fidelity wireframe:
 ## Features:
 * Social media platform where you can share recommendations and have the location displayed with an image of the place.
 * Engagement Tools: Like, comment, and retweet posts from other users to show appreciation, spark conversations, and amplify content within the X-plore community.
-
-
-## X-plore Application:
-The following images shows the X-plore Application displaying a working application:
-
 
 
 ## Future Development:
