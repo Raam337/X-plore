@@ -65,4 +65,4 @@ GitHub Repository
 URL: https://github.com/Raam337/X-plore
 
 Deployed Web Application
-URL: https://verdant-figolla-e5d498.netlify.app/
+URL: [xploreapp.netlify.app](https://xploreapp.netlify.app/)
